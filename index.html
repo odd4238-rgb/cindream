@@ -1,0 +1,2481 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CINDREAM — THE DREAM IN MOTION</title>
+
+<meta name="description"
+content="Cindream — From Language to Automotive. A journey from academic foundation to Automotive Appraiser.">
+
+<style>
+
+/* =========================================================
+   CINDREAM — COLOR SYSTEM
+========================================================= */
+
+:root{
+    --navy:#071A33;
+    --navy-dark:#030C18;
+    --navy-light:#0D2747;
+
+    --gold:#D4AF37;
+    --gold-light:#F0D878;
+
+    --white:#F7F7F5;
+    --silver:#D9DDE3;
+    --silver-dark:#9EA7B3;
+
+    --burgundy:#6E1F2A;
+    --burgundy-light:#8D3040;
+
+    --line:rgba(212,175,55,.30);
+    --glass:rgba(255,255,255,.045);
+
+    --max-width:1200px;
+}
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:
+        "Inter",
+        "Montserrat",
+        Arial,
+        sans-serif;
+
+    background:var(--navy-dark);
+    color:var(--white);
+
+    line-height:1.7;
+    overflow-x:hidden;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+button{
+    font-family:inherit;
+}
+
+.container{
+    width:min(92%,var(--max-width));
+    margin:auto;
+}
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+
+    pointer-events:none;
+    z-index:-2;
+
+    background:
+        linear-gradient(
+            115deg,
+            transparent 0%,
+            rgba(212,175,55,.025) 45%,
+            transparent 46%
+        ),
+        linear-gradient(
+            25deg,
+            transparent 0%,
+            rgba(255,255,255,.018) 50%,
+            transparent 51%
+        );
+}
+
+body::after{
+    content:"";
+
+    position:fixed;
+
+    width:500px;
+    height:500px;
+
+    top:10%;
+    right:-250px;
+
+    border:1px solid rgba(212,175,55,.08);
+    border-radius:50%;
+
+    pointer-events:none;
+    z-index:-1;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header{
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+
+    z-index:1000;
+
+    background:rgba(3,12,24,.90);
+
+    backdrop-filter:blur(14px);
+
+    border-bottom:1px solid rgba(212,175,55,.12);
+}
+
+.nav{
+    min-height:78px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:space-between;
+
+    gap:30px;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+
+    gap:13px;
+
+    flex-shrink:0;
+}
+
+.brand-logo{
+    width:48px;
+    height:48px;
+
+    object-fit:contain;
+
+    border:1px solid rgba(212,175,55,.55);
+
+    padding:4px;
+
+    background:#fff;
+}
+
+.brand-name{
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    letter-spacing:3px;
+    font-size:20px;
+}
+
+.brand-sub{
+    display:block;
+
+    font-size:8px;
+
+    letter-spacing:2px;
+
+    color:var(--silver-dark);
+}
+
+.nav-links{
+    display:flex;
+
+    align-items:center;
+
+    gap:4px;
+
+    list-style:none;
+}
+
+.nav-links a{
+    display:block;
+
+    padding:10px 12px;
+
+    color:var(--silver);
+
+    font-size:10px;
+
+    letter-spacing:1px;
+
+    transition:.3s ease;
+}
+
+.nav-links a:hover{
+    color:var(--gold);
+}
+
+.menu-toggle{
+    display:none;
+
+    background:none;
+
+    border:1px solid rgba(212,175,55,.5);
+
+    color:var(--gold);
+
+    width:44px;
+    height:40px;
+
+    cursor:pointer;
+
+    font-size:20px;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+    min-height:100vh;
+
+    position:relative;
+
+    display:flex;
+    align-items:center;
+
+    padding:150px 0 90px;
+
+    overflow:hidden;
+}
+
+.hero-grid{
+    position:absolute;
+
+    inset:0;
+
+    opacity:.18;
+
+    background-image:
+        linear-gradient(
+            rgba(212,175,55,.08) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(212,175,55,.08) 1px,
+            transparent 1px
+        );
+
+    background-size:70px 70px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black,
+            transparent 90%
+        );
+}
+
+.track-line{
+    position:absolute;
+
+    left:-10%;
+    right:-10%;
+
+    bottom:16%;
+
+    height:1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--gold),
+            transparent
+        );
+
+    transform:rotate(-7deg);
+
+    opacity:.7;
+}
+
+.track-line::after{
+    content:"";
+
+    position:absolute;
+
+    right:25%;
+    top:-4px;
+
+    width:9px;
+    height:9px;
+
+    background:var(--burgundy);
+
+    border:1px solid var(--gold);
+
+    border-radius:50%;
+}
+
+.hero-content{
+    position:relative;
+
+    z-index:2;
+
+    max-width:880px;
+}
+
+.eyebrow{
+    color:var(--gold);
+
+    letter-spacing:4px;
+
+    font-size:11px;
+
+    text-transform:uppercase;
+
+    margin-bottom:25px;
+}
+
+.hero h1{
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:clamp(55px,10vw,125px);
+
+    line-height:.9;
+
+    letter-spacing:5px;
+
+    font-weight:400;
+
+    margin-bottom:25px;
+}
+
+.hero h2{
+    color:var(--silver);
+
+    font-size:clamp(15px,2vw,23px);
+
+    font-weight:400;
+
+    letter-spacing:3px;
+
+    margin-bottom:30px;
+}
+
+.hero-slogan{
+    max-width:720px;
+
+    font-family:"Inter","Montserrat",Arial,sans-serif;
+
+    font-size:clamp(20px,3vw,32px);
+
+    line-height:1.4;
+
+    color:var(--white);
+}
+
+.hero-spanish{
+    margin-top:18px;
+
+    color:var(--gold);
+
+    font-style:italic;
+
+    font-size:15px;
+}
+
+.hero-button{
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin-top:40px;
+
+    padding:15px 24px;
+
+    border:1px solid var(--gold);
+
+    color:var(--gold);
+
+    font-size:11px;
+
+    letter-spacing:2px;
+
+    transition:.3s ease;
+}
+
+.hero-button:hover{
+    background:var(--gold);
+
+    color:var(--navy-dark);
+}
+
+.hero-side{
+    position:absolute;
+
+    right:7%;
+    bottom:14%;
+
+    writing-mode:vertical-rl;
+
+    color:rgba(217,221,227,.35);
+
+    font-size:9px;
+
+    letter-spacing:4px;
+}
+
+/* =========================================================
+   GENERAL
+========================================================= */
+
+section{
+    padding:120px 0;
+
+    position:relative;
+}
+
+.section-number{
+    color:var(--gold);
+
+    font-size:11px;
+
+    letter-spacing:3px;
+
+    margin-bottom:12px;
+}
+
+.section-title{
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:clamp(35px,5vw,64px);
+
+    font-weight:400;
+
+    line-height:1.05;
+
+    margin-bottom:20px;
+}
+
+.section-intro{
+    color:var(--silver-dark);
+
+    max-width:680px;
+
+    margin-bottom:55px;
+}
+
+.gold{
+    color:var(--gold);
+}
+
+.gold-line{
+    width:80px;
+
+    height:1px;
+
+    background:var(--gold);
+
+    margin:25px 0 35px;
+}
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+#about{
+    background:
+        linear-gradient(
+            180deg,
+            var(--navy-dark),
+            var(--navy)
+        );
+}
+
+.about-grid{
+    display:grid;
+
+    grid-template-columns:
+        .75fr 1.25fr;
+
+    gap:70px;
+
+    align-items:center;
+}
+
+.ceo-image{
+    aspect-ratio:4/5;
+
+    background:var(--navy-light);
+
+    border:1px solid rgba(212,175,55,.3);
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.ceo-image img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+}
+
+.ceo-image::after{
+    content:"";
+
+    position:absolute;
+
+    inset:12px;
+
+    border:1px solid rgba(212,175,55,.22);
+
+    pointer-events:none;
+}
+
+.about-text h3{
+    font-family:Georgia,serif;
+
+    font-size:30px;
+
+    font-weight:400;
+
+    margin-bottom:20px;
+}
+
+.about-text p{
+    color:var(--silver);
+
+    margin-bottom:18px;
+}
+
+.ceo-name{
+    color:var(--gold);
+
+    font-size:13px;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+}
+
+/* =========================================================
+   JOURNEY
+========================================================= */
+
+#journey{
+    background:var(--navy);
+
+    overflow:hidden;
+}
+
+.journey-head{
+    text-align:center;
+
+    margin-bottom:70px;
+}
+
+.journey-head .gold-line{
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.journey-head .section-intro{
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.roadmap{
+    position:relative;
+
+    max-width:1050px;
+
+    margin:auto;
+}
+
+.roadmap::before{
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    top:0;
+    bottom:0;
+
+    width:1px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent,
+            var(--gold),
+            var(--gold),
+            transparent
+        );
+
+    transform:translateX(-50%);
+}
+
+.roadmap-item{
+    width:50%;
+
+    position:relative;
+
+    padding:0 50px 70px;
+}
+
+.roadmap-item:nth-child(odd){
+    text-align:right;
+}
+
+.roadmap-item:nth-child(even){
+    margin-left:50%;
+}
+
+.roadmap-item::before{
+    content:"";
+
+    position:absolute;
+
+    width:14px;
+    height:14px;
+
+    top:5px;
+
+    background:var(--burgundy);
+
+    border:2px solid var(--gold);
+
+    border-radius:50%;
+
+    box-shadow:
+        0 0 20px rgba(212,175,55,.25);
+}
+
+.roadmap-item:nth-child(odd)::before{
+    right:-7px;
+}
+
+.roadmap-item:nth-child(even)::before{
+    left:-7px;
+}
+
+.roadmap-year{
+    color:var(--gold);
+
+    font-size:12px;
+
+    letter-spacing:3px;
+
+    margin-bottom:8px;
+}
+
+.roadmap-item h3{
+    font-family:Georgia,serif;
+
+    font-size:25px;
+
+    font-weight:400;
+
+    margin-bottom:10px;
+}
+
+.roadmap-item p{
+    color:var(--silver-dark);
+
+    font-size:14px;
+}
+
+/* =========================================================
+   CAREER FINISH
+========================================================= */
+
+.finish-line{
+    margin:20px auto 0;
+
+    max-width:700px;
+
+    padding:45px;
+
+    border:1px solid rgba(212,175,55,.35);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(212,175,55,.06),
+            rgba(110,31,42,.10)
+        );
+
+    text-align:center;
+}
+
+.finish-label{
+    color:var(--gold);
+
+    letter-spacing:4px;
+
+    font-size:11px;
+
+    margin-bottom:20px;
+}
+
+.finish-line h3{
+    font-family:Georgia,serif;
+
+    font-size:35px;
+
+    font-weight:400;
+
+    margin:8px 0;
+}
+
+.finish-line .career{
+    font-size:18px;
+
+    color:var(--silver);
+}
+
+.checkpoints{
+    margin:25px auto;
+
+    color:var(--silver-dark);
+
+    font-size:12px;
+
+    letter-spacing:1px;
+
+    line-height:2;
+}
+
+.finish-line .specialist{
+    color:var(--gold);
+
+    font-family:Georgia,serif;
+
+    font-size:25px;
+
+    margin-top:15px;
+}
+
+/* =========================================================
+   KINESTHETIC
+========================================================= */
+
+.learning-style{
+    margin-top:70px;
+
+    padding:30px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:25px;
+
+    border-left:3px solid var(--gold);
+
+    background:rgba(255,255,255,.025);
+}
+
+.learning-icon{
+    width:55px;
+    height:55px;
+
+    display:grid;
+    place-items:center;
+
+    border:1px solid var(--gold);
+
+    color:var(--gold);
+
+    font-size:24px;
+
+    flex-shrink:0;
+}
+
+.learning-style small{
+    display:block;
+
+    color:var(--silver-dark);
+
+    letter-spacing:2px;
+
+    font-size:9px;
+
+    margin-bottom:3px;
+}
+
+.learning-style strong{
+    display:block;
+
+    color:var(--gold);
+
+    letter-spacing:2px;
+
+    font-size:12px;
+
+    margin-bottom:4px;
+}
+
+.learning-style p{
+    color:var(--silver);
+
+    font-family:Georgia,serif;
+}
+
+/* =========================================================
+   MOTION
+========================================================= */
+
+#motion{
+    background:var(--navy-dark);
+}
+
+.motion-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:24px;
+}
+
+.motion-card{
+    position:relative;
+
+    overflow:hidden;
+
+    background:var(--glass);
+
+    border:1px solid rgba(212,175,55,.18);
+
+    min-height:430px;
+
+    transition:
+        transform .35s ease,
+        border-color .35s ease;
+}
+
+.motion-card:hover{
+    transform:translateY(-7px);
+
+    border-color:rgba(212,175,55,.65);
+}
+
+.motion-media{
+    height:230px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--navy-light),
+            var(--navy-dark)
+        );
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.motion-media img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+}
+
+.media-placeholder{
+    width:100%;
+    height:100%;
+
+    display:grid;
+
+    place-items:center;
+
+    color:var(--silver-dark);
+
+    text-align:center;
+
+    padding:30px;
+}
+
+.media-placeholder span{
+    display:block;
+
+    color:var(--gold);
+
+    font-size:28px;
+
+    margin-bottom:10px;
+}
+
+.motion-content{
+    padding:28px;
+}
+
+.motion-number{
+    color:var(--gold);
+
+    font-size:10px;
+
+    letter-spacing:3px;
+}
+
+.motion-content h3{
+    font-family:Georgia,serif;
+
+    font-weight:400;
+
+    font-size:25px;
+
+    margin:10px 0 12px;
+}
+
+.motion-content p{
+    color:var(--silver-dark);
+
+    font-size:14px;
+}
+
+.skills{
+    color:var(--gold);
+
+    font-size:9px;
+
+    letter-spacing:1px;
+
+    margin-top:18px;
+}
+
+.watch-button{
+    display:inline-flex;
+
+    margin-top:20px;
+
+    padding:10px 16px;
+
+    border:1px solid rgba(212,175,55,.55);
+
+    color:var(--gold);
+
+    font-size:9px;
+
+    letter-spacing:2px;
+
+    transition:.3s ease;
+}
+
+.watch-button:hover{
+    background:var(--gold);
+
+    color:var(--navy-dark);
+}
+
+/* =========================================================
+   MESSAGE
+========================================================= */
+
+#message{
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(110,31,42,.18),
+            transparent 45%
+        ),
+        var(--navy);
+}
+
+.message-section{
+    text-align:center;
+}
+
+.gift-area{
+    max-width:650px;
+
+    margin:50px auto 0;
+}
+
+.gift-box{
+    width:150px;
+    height:130px;
+
+    margin:0 auto 35px;
+
+    position:relative;
+
+    cursor:pointer;
+
+    filter:
+        drop-shadow(
+            0 15px 25px rgba(0,0,0,.3)
+        );
+
+    transition:transform .3s ease;
+}
+
+.gift-box:hover{
+    transform:translateY(-8px);
+}
+
+.gift-body{
+    position:absolute;
+
+    left:10px;
+    right:10px;
+
+    bottom:0;
+
+    height:95px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--navy-light),
+            var(--navy)
+        );
+
+    border:2px solid var(--gold);
+}
+
+.gift-lid{
+    position:absolute;
+
+    left:0;
+    right:0;
+
+    top:20px;
+
+    height:30px;
+
+    background:var(--navy-light);
+
+    border:2px solid var(--gold);
+
+    transition:
+        transform .6s ease,
+        top .6s ease;
+}
+
+.gift-ribbon-v{
+    position:absolute;
+
+    top:20px;
+    bottom:0;
+
+    left:50%;
+
+    width:20px;
+
+    transform:translateX(-50%);
+
+    background:var(--gold);
+}
+
+.gift-ribbon-h{
+    position:absolute;
+
+    left:0;
+    right:0;
+
+    top:52px;
+
+    height:12px;
+
+    background:var(--gold);
+}
+
+.gift-box.open .gift-lid{
+    transform:
+        rotate(-12deg)
+        translateY(-35px);
+
+    top:0;
+}
+
+.open-message{
+    min-height:100px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:30px;
+
+    border:1px solid rgba(212,175,55,.3);
+
+    background:rgba(255,255,255,.025);
+
+    color:var(--white);
+
+    font-family:"Inter","Montserrat",Arial,sans-serif;
+
+    font-size:20px;
+
+    line-height:1.5;
+
+    opacity:0;
+
+    transform:translateY(10px);
+
+    transition:.5s ease;
+}
+
+.open-message.visible{
+    opacity:1;
+
+    transform:translateY(0);
+}
+
+.message-button{
+    margin-top:25px;
+
+    padding:14px 25px;
+
+    background:transparent;
+
+    color:var(--gold);
+
+    border:1px solid var(--gold);
+
+    letter-spacing:2px;
+
+    font-size:10px;
+
+    cursor:pointer;
+
+    transition:.3s ease;
+}
+
+.message-button:hover{
+    background:var(--gold);
+
+    color:var(--navy-dark);
+}
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+#contact{
+    background:var(--navy-dark);
+}
+
+.contact-grid{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:70px;
+
+    align-items:start;
+}
+
+.contact-card{
+    border-top:1px solid var(--gold);
+
+    padding-top:30px;
+}
+
+.contact-item{
+    padding:20px 0;
+
+    border-bottom:
+        1px solid rgba(255,255,255,.08);
+}
+
+.contact-item small{
+    display:block;
+
+    color:var(--gold);
+
+    font-size:9px;
+
+    letter-spacing:3px;
+
+    margin-bottom:5px;
+}
+
+.contact-item a,
+.contact-item span{
+    color:var(--silver);
+
+    font-size:15px;
+
+    word-break:break-word;
+}
+
+.contact-item a:hover{
+    color:var(--gold);
+}
+
+.contact-note{
+    padding:40px;
+
+    border:1px solid rgba(212,175,55,.2);
+
+    background:rgba(255,255,255,.025);
+}
+
+.contact-note h3{
+    font-family:Georgia,serif;
+
+    font-weight:400;
+
+    font-size:28px;
+
+    margin-bottom:15px;
+}
+
+.contact-note p{
+    color:var(--silver-dark);
+}
+
+.back-top{
+    display:inline-block;
+
+    margin-top:35px;
+
+    color:var(--gold);
+
+    font-size:10px;
+
+    letter-spacing:2px;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+    padding:55px 0;
+
+    border-top:1px solid rgba(212,175,55,.15);
+
+    text-align:center;
+
+    background:#020913;
+}
+
+.footer-brand{
+    font-family:Georgia,serif;
+
+    font-size:25px;
+
+    letter-spacing:4px;
+}
+
+.footer-sub{
+    color:var(--gold);
+
+    font-size:9px;
+
+    letter-spacing:3px;
+
+    margin-top:7px;
+}
+
+footer p{
+    max-width:600px;
+
+    margin:22px auto;
+
+    color:var(--silver-dark);
+
+    font-family:Georgia,serif;
+
+    font-style:italic;
+}
+
+.copyright{
+    font-size:9px;
+
+    color:#667080;
+
+    letter-spacing:1px;
+}
+
+/* =========================================================
+   REVEAL
+========================================================= */
+
+.reveal{
+    opacity:0;
+
+    transform:translateY(30px);
+
+    transition:
+        opacity .7s ease,
+        transform .7s ease;
+}
+
+.reveal.active{
+    opacity:1;
+
+    transform:translateY(0);
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:900px){
+
+    .nav-links{
+        position:absolute;
+
+        top:78px;
+        left:0;
+        right:0;
+
+        display:none;
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+        background:rgba(3,12,24,.98);
+
+        border-bottom:
+            1px solid rgba(212,175,55,.2);
+
+        padding:15px 5%;
+    }
+
+    .nav-links.open{
+        display:flex;
+    }
+
+    .nav-links a{
+        padding:15px 10px;
+    }
+
+    .menu-toggle{
+        display:block;
+    }
+
+    .about-grid,
+    .contact-grid{
+        grid-template-columns:1fr;
+
+        gap:45px;
+    }
+
+    .motion-grid{
+        grid-template-columns:1fr;
+    }
+
+    .roadmap::before{
+        left:15px;
+    }
+
+    .roadmap-item,
+    .roadmap-item:nth-child(even){
+
+        width:100%;
+
+        margin-left:0;
+
+        padding:
+            0 0 55px 50px;
+
+        text-align:left;
+    }
+
+    .roadmap-item:nth-child(odd)::before,
+    .roadmap-item:nth-child(even)::before{
+
+        left:8px;
+        right:auto;
+    }
+
+    .hero-side{
+        display:none;
+    }
+}
+
+@media(max-width:600px){
+
+    section{
+        padding:85px 0;
+    }
+
+    .nav{
+        min-height:70px;
+    }
+
+    .nav-links{
+        top:70px;
+    }
+
+    .hero{
+        padding-top:130px;
+
+        min-height:90vh;
+    }
+
+    .hero h1{
+        font-size:58px;
+
+        letter-spacing:3px;
+    }
+
+    .hero h2{
+        font-size:13px;
+
+        letter-spacing:2px;
+    }
+
+    .hero-slogan{
+        font-size:21px;
+    }
+
+    .learning-style{
+        align-items:flex-start;
+
+        padding:22px;
+    }
+
+    .finish-line{
+        padding:28px 18px;
+    }
+
+    .finish-line h3{
+        font-size:27px;
+    }
+
+    .motion-media{
+        height:210px;
+    }
+
+    .open-message{
+        font-size:17px;
+    }
+}
+
+</style>
+</head>
+
+
+<body id="top">
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header>
+
+<div class="container nav">
+
+<a href="#home" class="brand">
+
+<img
+    class="brand-logo"
+    src="https://drive.google.com/thumbnail?id=1sdaeRqo7AA4wlYtYHfRje1PaV8CSU3ak&sz=w500"
+    alt="CINDREAM Logo"
+>
+
+<div>
+
+<div class="brand-name">
+CINDREAM
+</div>
+
+<span class="brand-sub">
+THE DREAM IN MOTION
+</span>
+
+</div>
+
+</a>
+
+
+<button
+    class="menu-toggle"
+    id="menuToggle"
+    aria-label="Mở menu"
+>
+☰
+</button>
+
+
+<ul class="nav-links" id="navLinks">
+
+<li>
+<a href="#home">01 — HOME</a>
+</li>
+
+<li>
+<a href="#about">02 — ABOUT</a>
+</li>
+
+<li>
+<a href="#journey">03 — JOURNEY</a>
+</li>
+
+<li>
+<a href="#motion">04 — IN MOTION</a>
+</li>
+
+<li>
+<a href="#message">05 — MESSAGE</a>
+</li>
+
+<li>
+<a href="#contact">06 — CONTACT</a>
+</li>
+
+</ul>
+
+</div>
+
+</header>
+
+
+<main>
+
+
+<!-- =========================================================
+     HOME
+========================================================= -->
+
+<section class="hero" id="home">
+
+<div class="hero-grid"></div>
+
+<div class="track-line"></div>
+
+
+<div class="container">
+
+<div class="hero-content reveal">
+
+<div class="eyebrow">
+CINDREAM — THE DREAM IN MOTION
+</div>
+
+<h1>
+CINDREAM
+</h1>
+
+<h2>
+FROM SMALL STEPS TO EXTRAORDINARY THINGS
+</h2>
+
+<p class="hero-slogan">
+“Sức mạnh từ tâm trí tạo nên những bước đi.
+Từ những bước nhỏ, vươn đến những điều phi thường.”
+</p>
+
+<p class="hero-spanish">
+Ojalá todos alcancemos un gran éxito.
+</p>
+
+<a
+    href="#about"
+    class="hero-button"
+>
+EXPLORE CINDREAM
+<span>→</span>
+</a>
+
+</div>
+
+</div>
+
+
+<div class="hero-side">
+MINIMAL × ARTISTIC × LUXURY × AUTOMOTIVE
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     ABOUT CINDREAM
+========================================================= -->
+
+<section id="about">
+
+<div class="container">
+
+<div class="about-grid">
+
+
+<div class="ceo-image reveal">
+
+<img
+    src="https://drive.google.com/thumbnail?id=1CBfxi7v5gX44R3YSykHbe3K6jACYO2HD&sz=w1000"
+    alt="CEO Cindream"
+>
+
+</div>
+
+
+<div class="about-text reveal">
+
+<div class="section-number">
+02 — ABOUT CINDREAM
+</div>
+
+<h2 class="section-title">
+The story behind
+<span class="gold">Cindream.</span>
+</h2>
+
+<div class="gold-line"></div>
+
+<div class="ceo-name">
+CEO — PHAN THÙY DƯƠNG
+</div>
+
+<p>
+Phan Thùy Dương, hay còn được biết đến với cái tên
+Cindy, hiện tại đang là CEO của công ty Cindream.
+</p>
+
+<p>
+Hiện tại cô đang theo học tại Trường Đại học
+Khoa học Xã hội và Nhân văn, Đại học Quốc gia
+Thành phố Hồ Chí Minh với vai trò là sinh viên
+năm nhất ngành Ngôn Ngữ Tây Ban Nha khóa 17.
+</p>
+
+<p>
+Cindream được xây dựng như một không gian thể hiện
+hành trình học tập, trải nghiệm và phát triển cá nhân
+trên con đường hướng tới những mục tiêu dài hạn.
+</p>
+
+<p>
+Từ những bước đi nhỏ, Cindream hướng tới việc biến
+ước mơ thành một hành trình có định hướng,
+có trải nghiệm và có hành động cụ thể.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     JOURNEY
+========================================================= -->
+
+<section id="journey">
+
+<div class="container">
+
+
+<div class="journey-head reveal">
+
+<div class="section-number">
+03 — JOURNEY / CAREER VISION
+</div>
+
+<h2 class="section-title">
+FROM LANGUAGE
+<span class="gold">TO AUTOMOTIVE</span>
+</h2>
+
+<div class="gold-line"></div>
+
+<p class="section-intro">
+Hành trình & tầm nhìn nghề nghiệp 2026–2030.
+Từ nền tảng ngôn ngữ đến định hướng
+Automotive Appraiser tại Hoa Kỳ.
+</p>
+
+</div>
+
+
+<div class="roadmap">
+
+
+<div class="roadmap-item reveal">
+
+<div class="roadmap-year">
+2026 — FOUNDATION
+</div>
+
+<h3>
+Academic Foundation
+</h3>
+
+<p>
+Xây dựng nền tảng học tập,
+tư duy và kỹ năng cần thiết
+cho hành trình dài hạn.
+</p>
+
+</div>
+
+
+<div class="roadmap-item reveal">
+
+<div class="roadmap-year">
+2026 → 2027
+</div>
+
+<h3>
+Language Development
+</h3>
+
+<p>
+Spanish • English • Communication
+</p>
+
+</div>
+
+
+<div class="roadmap-item reveal">
+
+<div class="roadmap-year">
+2027 → 2028
+</div>
+
+<h3>
+Automotive Knowledge
+</h3>
+
+<p>
+Basic Mechanics • Insurance
+• Vehicle Knowledge
+</p>
+
+</div>
+
+
+<div class="roadmap-item reveal">
+
+<div class="roadmap-year">
+2028 → 2029
+</div>
+
+<h3>
+Professional Experience
+</h3>
+
+<p>
+Internship • Automotive Insurance
+• Showroom
+</p>
+
+</div>
+
+
+<div class="roadmap-item reveal">
+
+<div class="roadmap-year">
+2030
+</div>
+
+<h3>
+United States
+</h3>
+
+<p>
+Tiến tới định hướng nghề nghiệp
+Automotive Appraiser.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- FINISH -->
+
+<div class="finish-line reveal">
+
+<div class="finish-label">
+FINISH LINE
+</div>
+
+<h3>
+🇺🇸 UNITED STATES
+</h3>
+
+<div class="career">
+Automotive Appraiser
+</div>
+
+<div class="checkpoints">
+
+IELTS ≥ 5.5
+•
+I-CAR
+•
+ASE
+<br>
+
+Insurance Experience
+•
+Automotive Experience
+
+</div>
+
+<div class="specialist">
+🏎️ Classic Car Specialist
+</div>
+
+</div>
+
+
+<!-- VARK -->
+
+<div class="learning-style reveal">
+
+<div class="learning-icon">
+⚙
+</div>
+
+<div>
+
+<small>
+VARK LEARNING STYLE
+</small>
+
+<strong>
+KINESTHETIC
+</strong>
+
+<p>
+Học qua trải nghiệm. Hành động để ghi nhớ
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     CINDREAM IN MOTION
+========================================================= -->
+
+<section id="motion">
+
+<div class="container">
+
+
+<div class="reveal">
+
+<div class="section-number">
+04 — CINDREAM IN MOTION
+</div>
+
+<h2 class="section-title">
+Learning
+<span class="gold">in motion.</span>
+</h2>
+
+<div class="gold-line"></div>
+
+<p class="section-intro">
+Những hoạt động phản ánh cách Cindream
+học tập, thực hành và phát triển.
+</p>
+
+</div>
+
+
+<div class="motion-grid">
+
+
+<!-- =====================================================
+     STUDY NOTES
+===================================================== -->
+
+<article class="motion-card reveal">
+
+<div class="motion-media">
+
+<img
+    src="https://drive.google.com/thumbnail?id=1q8Tln3AaEt7OiWmxnBD3r3MZlzk96tcx&sz=w1200"
+    alt="Vở ghi chép và điện thoại"
+>
+
+</div>
+
+
+<div class="motion-content">
+
+<div class="motion-number">
+01 — STUDY NOTES LAB
+</div>
+
+<h3>
+Study Notes Lab
+</h3>
+
+<p>
+Học bằng cách đọc, ghi chú
+và hệ thống hóa.
+</p>
+
+<div class="skills">
+READING • WRITING • MEMORY
+</div>
+
+</div>
+
+</article>
+
+
+<!-- =====================================================
+     AI
+===================================================== -->
+
+<article class="motion-card reveal">
+
+<div class="motion-media">
+
+<div class="media-placeholder">
+
+<div>
+
+<span>02</span>
+
+AI CONVERSATION
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="motion-content">
+
+<div class="motion-number">
+02 — AI CONVERSATION LAB
+</div>
+
+<h3>
+AI Conversation Lab
+</h3>
+
+<p>
+Biến AI thành bạn luyện hội thoại.
+</p>
+
+<div class="skills">
+LISTENING • SPEAKING • INTERACTION
+</div>
+
+
+<a
+    class="watch-button"
+    href="https://drive.google.com/file/d/1Vf4SFGhnWm72il3XqCEAS8iPE4FB-JDZ/view?usp=drivesdk"
+    target="_blank"
+    rel="noopener noreferrer"
+>
+WATCH VIDEO →
+</a>
+
+</div>
+
+</article>
+
+
+<!-- =====================================================
+     MUSIC
+===================================================== -->
+
+<article class="motion-card reveal">
+
+<div class="motion-media">
+
+<div class="media-placeholder">
+
+<div>
+
+<span>03</span>
+
+SPANISH MUSIC
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="motion-content">
+
+<div class="motion-number">
+03 — SPANISH MUSIC LAB
+</div>
+
+<h3>
+Spanish Music Lab
+</h3>
+
+<p>
+Biến âm nhạc thành công cụ
+ghi nhớ ngôn ngữ.
+</p>
+
+<div class="skills">
+LISTENING • SPEAKING • READING
+• MEMORY • VOCABULARY
+</div>
+
+
+<a
+    class="watch-button"
+    href="https://drive.google.com/file/d/1kP6Bmnx6JVrif7NUR2ofIlud1vgpnk6c/view?usp=drivesdk"
+    target="_blank"
+    rel="noopener noreferrer"
+>
+WATCH VIDEO →
+</a>
+
+</div>
+
+</article>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     MESSAGE
+========================================================= -->
+
+<section id="message">
+
+<div class="container message-section">
+
+
+<div class="section-number reveal">
+05 — A MESSAGE FOR YOU 🎁
+</div>
+
+<h2 class="section-title reveal">
+A little gift
+<span class="gold">for your journey.</span>
+</h2>
+
+<p
+class="section-intro reveal"
+style="margin-left:auto;margin-right:auto;"
+>
+Một thông điệp nhỏ dành cho người đang tiếp tục
+hành trình của riêng mình.
+</p>
+
+
+<div class="gift-area reveal">
+
+
+<div class="gift-box" id="giftBox">
+
+<div class="gift-lid"></div>
+
+<div class="gift-body"></div>
+
+<div class="gift-ribbon-v"></div>
+
+<div class="gift-ribbon-h"></div>
+
+</div>
+
+
+<div
+    class="open-message"
+    id="messageText"
+>
+Hãy mở hộp quà.
+</div>
+
+
+<button
+    class="message-button"
+    id="messageButton"
+>
+OPEN YOUR MESSAGE
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     CONTACT
+========================================================= -->
+
+<section id="contact">
+
+<div class="container">
+
+
+<div class="contact-grid">
+
+
+<div class="reveal">
+
+<div class="section-number">
+06 — CONTACT
+</div>
+
+<h2 class="section-title">
+Stay in
+<span class="gold">touch.</span>
+</h2>
+
+<div class="gold-line"></div>
+
+
+<div class="contact-card">
+
+
+<div class="contact-item">
+
+<small>
+HOTLINE
+</small>
+
+<a href="tel:+84768915658">
+(+84) 768915658
+</a>
+
+</div>
+
+
+<div class="contact-item">
+
+<small>
+EMAIL
+</small>
+
+<a href="mailto:2657070011@hcmussh.edu.vn">
+2657070011@hcmussh.edu.vn
+</a>
+
+</div>
+
+
+<div class="contact-item">
+
+<small>
+ADDRESS
+</small>
+
+<span>
+658/99 Co Hoi, P. Thu Thach,
+TP. Thanh Cong
+</span>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<div class="contact-note reveal">
+
+<h3>
+CINDREAM
+</h3>
+
+<p>
+Một hành trình không được tạo nên
+bởi một bước đi duy nhất.
+</p>
+
+<p style="margin-top:15px;">
+Nó được tạo nên từ những bước nhỏ,
+những trải nghiệm, những lần thử,
+và sự kiên trì tiếp tục tiến về phía trước.
+</p>
+
+<a
+    href="#top"
+    class="back-top"
+>
+BACK TO TOP ↑
+</a>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+<div class="container">
+
+<div class="footer-brand">
+CINDREAM
+</div>
+
+<div class="footer-sub">
+THE DREAM IN MOTION
+</div>
+
+<p>
+“Sức mạnh từ tâm trí tạo nên những bước đi.
+Từ những bước nhỏ, vươn đến những điều phi thường.”
+<br>
+Ojalá todos alcancemos un gran éxito.
+</p>
+
+<div class="copyright">
+© CINDREAM — ALL RIGHTS RESERVED
+</div>
+
+</div>
+
+</footer>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+const menuToggle =
+document.getElementById("menuToggle");
+
+const navLinks =
+document.getElementById("navLinks");
+
+
+menuToggle.addEventListener(
+"click",
+function(){
+
+navLinks.classList.toggle("open");
+
+});
+
+
+document
+.querySelectorAll(".nav-links a")
+.forEach(function(link){
+
+link.addEventListener(
+"click",
+function(){
+
+navLinks.classList.remove("open");
+
+});
+
+});
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const revealElements =
+document.querySelectorAll(".reveal");
+
+
+const revealObserver =
+new IntersectionObserver(
+function(entries){
+
+entries.forEach(function(entry){
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("active");
+
+}
+
+});
+
+},
+{
+threshold:.12
+}
+);
+
+
+revealElements.forEach(function(element){
+
+revealObserver.observe(element);
+
+});
+
+
+/* =========================================================
+   RANDOM MESSAGE
+========================================================= */
+
+const messages = [
+
+"Hành trình của bạn không cần giống bất kỳ ai. Điều quan trọng là bạn vẫn đang tiến về phía trước.",
+
+"Hãy nhớ giữ gìn sức khỏe trên hành trình chinh phục những mục tiêu của mình.",
+
+"Mỗi người là một màu sắc riêng. Bạn không cần trở thành bản sao của bất kỳ ai.",
+
+"Chỉ cần vẫn còn cố gắng, vẫn còn cơ hội để tiến về phía trước.",
+
+"Người đang đọc những dòng chữ này đã đi qua nhiều điều hơn chính họ từng nghĩ.",
+
+"Không phải mọi bước tiến đều cần thật lớn. Một bước nhỏ hôm nay vẫn là một bước tiến.",
+
+"Đừng vội so sánh chương của mình với chương của người khác.",
+
+"Có những giấc mơ cần thời gian để trở thành hiện thực. Hãy cho bản thân thời gian ấy.",
+
+"Bạn không cần hoàn hảo để bắt đầu. Bạn chỉ cần đủ can đảm để bước bước đầu tiên.",
+
+"Điều quan trọng không phải là bạn đi nhanh đến đâu, mà là bạn vẫn đang tiếp tục hành trình."
+
+];
+
+
+const giftBox =
+document.getElementById("giftBox");
+
+const messageButton =
+document.getElementById("messageButton");
+
+const messageText =
+document.getElementById("messageText");
+
+
+let lastMessage = -1;
+
+
+function showRandomMessage(){
+
+let randomIndex;
+
+do{
+
+randomIndex =
+Math.floor(
+Math.random() * messages.length
+);
+
+}
+while(
+messages.length > 1 &&
+randomIndex === lastMessage
+);
+
+
+lastMessage = randomIndex;
+
+
+giftBox.classList.add("open");
+
+messageText.classList.remove("visible");
+
+
+setTimeout(function(){
+
+messageText.textContent =
+messages[randomIndex];
+
+messageText.classList.add("visible");
+
+},350);
+
+}
+
+
+giftBox.addEventListener(
+"click",
+showRandomMessage
+);
+
+
+messageButton.addEventListener(
+"click",
+showRandomMessage
+);
+
+
+/* =========================================================
+   NEW MESSAGE WHEN PAGE LOADS
+========================================================= */
+
+window.addEventListener(
+"load",
+function(){
+
+const randomIndex =
+Math.floor(
+Math.random() * messages.length
+);
+
+lastMessage = randomIndex;
+
+messageText.textContent =
+messages[randomIndex];
+
+});
+
+</script>
+
+</body>
+</html>
